@@ -172,6 +172,10 @@ PrefabInstance:
       value: BouncePad (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
       propertyPath: m_TagString
       value: BouncePad
       objectReference: {fileID: 0}
@@ -231,6 +235,10 @@ PrefabInstance:
     - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
       propertyPath: m_Name
       value: BouncePad (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
       propertyPath: m_TagString
@@ -560,6 +568,10 @@ PrefabInstance:
       value: BouncePad (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
       propertyPath: m_TagString
       value: BouncePad
       objectReference: {fileID: 0}
@@ -639,6 +651,10 @@ PrefabInstance:
       value: BouncePad (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
       propertyPath: m_TagString
       value: BouncePad
       objectReference: {fileID: 0}
@@ -702,6 +718,10 @@ PrefabInstance:
     - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
       propertyPath: m_Name
       value: BouncePad (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
       propertyPath: m_TagString
@@ -770,6 +790,10 @@ PrefabInstance:
       value: BouncePad (5)
       objectReference: {fileID: 0}
     - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
       propertyPath: m_TagString
       value: BouncePad
       objectReference: {fileID: 0}
@@ -829,6 +853,10 @@ PrefabInstance:
     - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
       propertyPath: m_Name
       value: BouncePad (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
       propertyPath: m_TagString
@@ -900,6 +928,10 @@ PrefabInstance:
       value: BouncePad (7)
       objectReference: {fileID: 0}
     - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
       propertyPath: m_TagString
       value: BouncePad
       objectReference: {fileID: 0}
@@ -967,7 +999,7 @@ GameObject:
   - component: {fileID: 1381249746}
   - component: {fileID: 1381249747}
   - component: {fileID: 1381249748}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1136,9 +1168,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1381249741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 129b7c07a565d4b4cbae4a607deedc8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 383020348d7b8d94d8ca00ab1b6e4af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  moveForce: 2
+  boostDuration: 0.75
+  maxSpeed: 6
+  boostMultiplier: 3
 --- !u!1 &1499426405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1512,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4004031392705783253, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
   m_PrefabInstance: {fileID: 1929976464}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1620417457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1620417458}
+  - component: {fileID: 1620417459}
+  m_Layer: 0
+  m_Name: ItemSpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1620417458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620417457}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.31447, y: -0.54857, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1620417459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620417457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976672f91ba0876449a3e2b43c16e0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  itemPrefab: {fileID: 6550160627961579950, guid: daf90b0ca78555246aa5e134c2773ade, type: 3}
+  leftBorder: {fileID: 2109320257}
+  rightBorder: {fileID: 1499426405}
+  topBorder: {fileID: 1579689373}
+  botBorder: {fileID: 1740830692}
+  numItems: 10
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1740830692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,6 +1825,10 @@ PrefabInstance:
       value: BouncePad (6)
       objectReference: {fileID: 0}
     - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
       propertyPath: m_TagString
       value: BouncePad
       objectReference: {fileID: 0}
@@ -1910,6 +2003,63 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1001 &3456025712113931037
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1595764161269780718, guid: daf90b0ca78555246aa5e134c2773ade, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.40642
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595764161269780718, guid: daf90b0ca78555246aa5e134c2773ade, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.8391
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595764161269780718, guid: daf90b0ca78555246aa5e134c2773ade, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595764161269780718, guid: daf90b0ca78555246aa5e134c2773ade, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595764161269780718, guid: daf90b0ca78555246aa5e134c2773ade, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595764161269780718, guid: daf90b0ca78555246aa5e134c2773ade, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595764161269780718, guid: daf90b0ca78555246aa5e134c2773ade, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595764161269780718, guid: daf90b0ca78555246aa5e134c2773ade, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595764161269780718, guid: daf90b0ca78555246aa5e134c2773ade, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1595764161269780718, guid: daf90b0ca78555246aa5e134c2773ade, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6550160627961579950, guid: daf90b0ca78555246aa5e134c2773ade, type: 3}
+      propertyPath: m_Name
+      value: Item
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: daf90b0ca78555246aa5e134c2773ade, type: 3}
 --- !u!1001 &7084247732035322411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1967,6 +2117,10 @@ PrefabInstance:
       value: BouncePad
       objectReference: {fileID: 0}
     - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048841839464643613, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
       propertyPath: m_TagString
       value: BouncePad
       objectReference: {fileID: 0}
@@ -1981,6 +2135,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 619394802}
   - {fileID: 519420032}
-  - {fileID: 1381249743}
+  - {fileID: 1620417458}
   - {fileID: 1360964486}
   - {fileID: 1912461913}
+  - {fileID: 1381249743}
+  - {fileID: 3456025712113931037}

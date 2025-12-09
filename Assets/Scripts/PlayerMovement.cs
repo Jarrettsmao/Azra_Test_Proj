@@ -3,7 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
-public class PlayerControls : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveForce;
     [SerializeField] private float boostDuration;
@@ -31,6 +31,14 @@ public class PlayerControls : MonoBehaviour
             InputControls();    
         }
     }
+    void FixedUpdate()
+    {
+        //cap speed
+        if (rb.linearVelocity.magnitude > maxSpeed)
+        {
+            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -52,14 +60,6 @@ public class PlayerControls : MonoBehaviour
         isBoosted = false;
         controlsDisabled = false;
         sr.color = originalColor;
-    }
-
-    void FixedUpdate()
-    {
-        if (rb.linearVelocity.magnitude > maxSpeed)
-        {
-            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
-        }
     }
 
     private void InputControls()
