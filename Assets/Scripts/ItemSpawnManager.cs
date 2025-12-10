@@ -3,17 +3,17 @@ using UnityEngine;
 public class ItemSpawnManager : MonoBehaviour
 {
     public GameObject itemPrefab;
-    [SerializeField] private GameObject leftBorder, rightBorder, topBorder, botBorder; 
+    [SerializeField] private GameObject leftBorder, rightBorder, topBorder, botBorder;
     private float leftX, rightX, botY, topY;
     [SerializeField] private float numItems = 10f;
     [SerializeField] private LayerMask layerMask;
-    
-    void Start()
+
+    void Awake()
     {
-        layerMask = LayerMask.GetMask("Player", "BouncePad");
+        layerMask = LayerMask.GetMask("Player", "BouncePad", "Borders", "Items");
 
         leftX = leftBorder.transform.position.x;
-        rightX =  rightBorder.transform.position.x;
+        rightX = rightBorder.transform.position.x;
         botY = botBorder.transform.position.y;
         topY = topBorder.transform.position.y;
 
@@ -33,7 +33,8 @@ public class ItemSpawnManager : MonoBehaviour
         if (!hit)
         {
             Instantiate(itemPrefab, spawnPos, Quaternion.identity);
-        } else
+        }
+        else
         {
             SpawnItem();
         }

@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveForce;
     [SerializeField] private float boostDuration;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private float maxBoostSpeed;
     [SerializeField] private float boostMultiplier;
 
     private Rigidbody2D rb;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isBoosted = false;
     private bool controlsDisabled = false;
     private Color originalColor;
+    private Coroutine activeColorCoroutine;
 
     void Start()
     {
@@ -28,15 +30,25 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!controlsDisabled)
         {
-            InputControls();    
+            InputControls();
         }
     }
     void FixedUpdate()
     {
-        //cap speed
-        if (rb.linearVelocity.magnitude > maxSpeed)
+        //cap speed when not boosted
+        if (!isBoosted)
         {
-            rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+            if (rb.linearVelocity.magnitude > maxSpeed)
+            {
+                rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
+            }
+        }
+        else
+        {
+            if (rb.linearVelocity.magnitude > maxBoostSpeed)
+            {
+                rb.linearVelocity = rb.linearVelocity.normalized * maxBoostSpeed;
+            }
         }
     }
 
@@ -44,22 +56,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.collider.CompareTag("BouncePad"))
         {
-            StartCoroutine(ApplySpeedBoost());
+            CheckActiveCoroutine(ApplySpeedBoost());
         }
     }
 
-    private IEnumerator ApplySpeedBoost()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        isBoosted = true;
-        controlsDisabled = true;
-        sr.color = new Color(255f/255f, 0f, 0f);
-
-        yield return new WaitForSeconds(boostDuration);
-
-        isBoosted = false;
-        controlsDisabled = false;
-        sr.color = originalColor;
+        if (collision.CompareTag("Item"))
+        {
+            CheckActiveCoroutine(FlashCollected());
+        }
     }
 
     private void InputControls()
@@ -72,12 +78,42 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput.sqrMagnitude > 0.01f)
         {
             Vector2 forceToApply = moveInput * moveForce;
-
-            if (isBoosted)
-            {
-                forceToApply *= boostMultiplier;
-            }
             rb.AddForce(forceToApply);
         }
+    }
+
+    private IEnumerator ApplySpeedBoost()
+    {
+        //overrides color if there is another coroutine
+
+        isBoosted = true;
+        controlsDisabled = true;
+        sr.color = new Color(255f / 255f, 0f, 0f);
+
+        yield return new WaitForSeconds(boostDuration);
+
+        isBoosted = false;
+        controlsDisabled = false;
+        sr.color = originalColor;
+        activeColorCoroutine = null;
+    }
+
+    private IEnumerator FlashCollected()
+    {
+        sr.color = new Color(0f, 255f / 255f, 0f);
+
+        yield return new WaitForSeconds(0.25f);
+
+        sr.color = originalColor;
+        activeColorCoroutine = null;
+    }
+
+    private void CheckActiveCoroutine(IEnumerator coroutine)
+    {
+        if (activeColorCoroutine != null)
+        {
+            StopCoroutine(activeColorCoroutine);
+        }
+        activeColorCoroutine = StartCoroutine(coroutine);
     }
 }
