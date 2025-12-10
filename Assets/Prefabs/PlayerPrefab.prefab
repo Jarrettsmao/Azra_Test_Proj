@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4257513913981466620}
   - component: {fileID: 3226318623845408762}
   - component: {fileID: 4961269734480379385}
-  - component: {fileID: 270060107161176638}
   - component: {fileID: 1787424841392846137}
+  - component: {fileID: 270060107161176638}
+  - component: {fileID: -3807587912990174386}
   m_Layer: 6
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -121,23 +122,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &270060107161176638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3395384908135032198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 383020348d7b8d94d8ca00ab1b6e4af2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveForce: 2
-  boostDuration: 0.75
-  maxSpeed: 4
-  maxBoostSpeed: 8
-  boostMultiplier: 2
 --- !u!58 &1787424841392846137
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -174,3 +158,32 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &270060107161176638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3395384908135032198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383020348d7b8d94d8ca00ab1b6e4af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveForce: 2
+  boostDuration: 0.75
+  maxSpeed: 4
+  maxBoostSpeed: 8
+  boostMultiplier: 2
+--- !u!114 &-3807587912990174386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3395384908135032198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af768a42518d27748bf896d5295d7d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'

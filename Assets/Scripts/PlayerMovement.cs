@@ -1,29 +1,20 @@
 using UnityEngine;
-using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(SpriteRenderer))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveForce;
-    [SerializeField] private float boostDuration;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float maxBoostSpeed;
-    [SerializeField] private float boostMultiplier;
 
     private Rigidbody2D rb;
-    private SpriteRenderer sr;
     private Vector2 moveInput;
-    private bool isBoosted = false;
-    private bool controlsDisabled = false;
-    private Color originalColor;
-    private Coroutine activeColorCoroutine;
+    public bool isBoosted = false;
+    public bool controlsDisabled = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
-        originalColor = sr.color;
     }
 
     void Update()
@@ -52,22 +43,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("BouncePad"))
-        {
-            CheckActiveCoroutine(ApplySpeedBoost());
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Item"))
-        {
-            CheckActiveCoroutine(FlashCollected());
-        }
-    }
-
     private void InputControls()
     {
         float x = Input.GetAxis("Horizontal");
@@ -82,38 +57,5 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private IEnumerator ApplySpeedBoost()
-    {
-        //overrides color if there is another coroutine
 
-        isBoosted = true;
-        controlsDisabled = true;
-        sr.color = new Color(255f / 255f, 0f, 0f);
-
-        yield return new WaitForSeconds(boostDuration);
-
-        isBoosted = false;
-        controlsDisabled = false;
-        sr.color = originalColor;
-        activeColorCoroutine = null;
-    }
-
-    private IEnumerator FlashCollected()
-    {
-        sr.color = new Color(0f, 255f / 255f, 0f);
-
-        yield return new WaitForSeconds(0.25f);
-
-        sr.color = originalColor;
-        activeColorCoroutine = null;
-    }
-
-    private void CheckActiveCoroutine(IEnumerator coroutine)
-    {
-        if (activeColorCoroutine != null)
-        {
-            StopCoroutine(activeColorCoroutine);
-        }
-        activeColorCoroutine = StartCoroutine(coroutine);
-    }
 }

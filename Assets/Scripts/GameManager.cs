@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ScoreManager.Instance.OnScoreChanged.AddListener(CheckWin);
+        PlayerHealthManager.Instance.OnHealthChanged.AddListener(CheckWin);
     }
 
     void CheckWin(int currentScore)
@@ -14,6 +15,9 @@ public class GameManager : MonoBehaviour
         if (currentScore >= scoreToWin)
         {
             EndGame(true);
+        } else if (currentScore <= 0)
+        {
+            EndGame(false);
         }
     }
 

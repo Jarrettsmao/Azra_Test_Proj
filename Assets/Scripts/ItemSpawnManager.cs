@@ -8,7 +8,7 @@ public class ItemSpawnManager : MonoBehaviour
     [SerializeField] private float numItems = 10f;
     [SerializeField] private LayerMask layerMask;
 
-    void Awake()
+    void Start()
     {
         layerMask = LayerMask.GetMask("Player", "BouncePad", "Borders", "Items");
 
