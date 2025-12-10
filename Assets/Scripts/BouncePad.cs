@@ -28,9 +28,10 @@ public class BouncePad : MonoBehaviour
 
         // apply force in the opposite direction of the contact normal
         rb.AddForce(reflectDirection * bounceForce, ForceMode2D.Impulse);
-
-        StartCoroutine(ChangeColor());
-
+        if (collision.collider.CompareTag("Player") || collision.collider.CompareTag("Hunter"))
+        {
+            StartCoroutine(ChangeColor());    
+        }
     }
 
     private IEnumerator ChangeColor()

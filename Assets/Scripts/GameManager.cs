@@ -3,27 +3,32 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int scoreToWin;
-    // [SerializeField] private Player player;
+    [SerializeField] private EndGameUI endGameUI;
     void Start()
     {
-        ScoreManager.Instance.OnScoreChanged.AddListener(CheckWin);
-        PlayerHealthManager.Instance.OnHealthChanged.AddListener(CheckWin);
+        ScoreManager.Instance.OnScoreChanged.AddListener(CheckScore);
+        PlayerHealthManager.Instance.OnHealthChanged.AddListener(CheckHealth);
     }
 
-    void CheckWin(int currentScore)
-    {   
+    private void CheckScore(int currentScore)
+    {
         if (currentScore >= scoreToWin)
         {
-            EndGame(true);
-        } else if (currentScore <= 0)
+            EndGame(true); // player wins
+        }
+    }
+
+    private void CheckHealth(int currentHealth)
+    {
+        if (currentHealth <= 0)
         {
-            EndGame(false);
+            EndGame(false); // player loses
         }
     }
 
     void EndGame(bool won)
     {
+        endGameUI.ShowEndGame(won);
         Time.timeScale = 0;
-        Debug.Log("Win " + won);
     }
 }
