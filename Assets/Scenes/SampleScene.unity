@@ -2062,6 +2062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseUI
   panel: {fileID: 982554211}
   restartButton: {fileID: 591296283}
+  endGameUI: {fileID: 24697208}
 --- !u!4 &676499205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4004031392705783253, guid: e3dd1e8ada0366a4ebf6319add7b118e, type: 3}
@@ -2347,7 +2348,6 @@ GameObject:
   - component: {fileID: 867558471}
   - component: {fileID: 867558470}
   - component: {fileID: 867558469}
-  - component: {fileID: 867558472}
   m_Layer: 5
   m_Name: DifficultyDropdown
   m_TagString: Untagged
@@ -2479,18 +2479,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867558467}
   m_CullTransparentMesh: 1
---- !u!114 &867558472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867558467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85a1bd45a5d768f48b479b4371aeb678, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &870726611
 GameObject:
   m_ObjectHideFlags: 0

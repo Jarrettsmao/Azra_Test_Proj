@@ -8,4 +8,5 @@ public class DifficultyData : ScriptableObject
     public int enemyCount = 3;
     public int hunterCount = 1;
     public float spawnRate = 2f;
+    public float invincibilityTime = 1f;
 }

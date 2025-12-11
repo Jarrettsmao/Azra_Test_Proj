@@ -7,6 +7,7 @@ public class PauseUI : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
     [SerializeField] private Button restartButton;
+    [SerializeField] private EndGameUI endGameUI;
 
     private bool isPaused = false;
 
@@ -18,7 +19,7 @@ public class PauseUI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !endGameUI.IsPanelActive())
         {
             if (isPaused)
                 ResumeGame();

@@ -61,4 +61,6 @@ public class EndGameUI : MonoBehaviour
         DifficultyController.Instance.SetDifficulty(difficultyOptions[index]);
         Debug.Log("Difficulty changed to: " + difficultyOptions[index].difficultyName);
     }
+
+    public bool IsPanelActive() => panel.activeSelf;
 }

@@ -17,3 +17,4 @@ MonoBehaviour:
   enemyCount: 3
   hunterCount: 1
   spawnRate: 2
+  invincibilityTime: 2
