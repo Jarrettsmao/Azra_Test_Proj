@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class HunterMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float baseSpeed = 2f;
     [SerializeField] private float maxSpeed = 4f;
     [SerializeField] private float rotateSpeed = 10f;
+    private float moveSpeed;
 
     private Transform player;
     private Rigidbody2D rb;
@@ -15,6 +16,7 @@ public class HunterMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         movementDisabled = false;
+        moveSpeed = baseSpeed * DifficultyController.Instance.Current.enemySpeedMultiplier;
     }
 
     void FixedUpdate()

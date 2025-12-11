@@ -7,10 +7,16 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject hunterPrefab;
     [SerializeField] private float launchForceMin = 10f;
     [SerializeField] private float launchForceMax = 20f;
-    [SerializeField] private float numEnemies;
-    [SerializeField] private float spawnDelay = 1f;
+    private float numEnemies;
+    private float numHunters;
+    private float spawnDelay;
     void Start()
     {
+        var difficulty = DifficultyController.Instance.Current;
+        spawnDelay = difficulty.spawnRate;
+        numEnemies = difficulty.enemyCount;
+        numHunters = difficulty.hunterCount;
+
         StartCoroutine(SpawnEnemiesWithDelay());
     }
 
@@ -21,7 +27,11 @@ public class EnemySpawner : MonoBehaviour
             SpawnEnemy();
             yield return new WaitForSeconds(spawnDelay);
         }
-        SpawnHunter();
+        for (int i = 0; i < numHunters; i++)
+        {
+            SpawnHunter();
+            yield return new WaitForSeconds(spawnDelay);
+        }
     }
 
     public void SpawnEnemy()

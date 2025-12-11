@@ -105,8 +105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   enemyPrefab: {fileID: 822199112866685397, guid: f562d8c96a023304d9ed520e38217199, type: 3}
-  hunterPrefab: {fileID: 0}
+  hunterPrefab: {fileID: 4901675488550855288, guid: ddd78c998bc407d49bfd922d50dbbf8e, type: 3}
   launchForceMin: 10
   launchForceMax: 20
-  numEnemies: 3
-  spawnDelay: 1

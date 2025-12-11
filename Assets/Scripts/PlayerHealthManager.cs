@@ -5,7 +5,7 @@ using TMPro;
 public class PlayerHealthManager : MonoBehaviour
 {
     public static PlayerHealthManager Instance;
-    public UnityEvent<int> OnHealthChanged;
+    public UnityEvent<int> OnHealthChanged = new UnityEvent<int>();
     [SerializeField] private int maxHealth = 5;
     private int currHealth;
 
@@ -13,11 +13,6 @@ public class PlayerHealthManager : MonoBehaviour
     {
         Instance = this;
         currHealth = maxHealth;
-        OnHealthChanged = new UnityEvent<int>();
-    }
-    void Start()
-    {
-        
     }
 
     public void ChangeHealth(int amount)
@@ -26,12 +21,7 @@ public class PlayerHealthManager : MonoBehaviour
         OnHealthChanged.Invoke(currHealth);
     }
 
-    public int GetHealth()
-    {
-        return currHealth;
-    }
-    public int GetMaxHealth()
-    {
-        return maxHealth;
-    }
+    public int GetHealth() => currHealth;
+    public int GetMaxHealth() => maxHealth;
+
 }
