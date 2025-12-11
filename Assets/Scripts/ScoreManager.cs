@@ -5,14 +5,16 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
-    public UnityEvent<int> OnScoreChanged;
+    public UnityEvent<int> OnScoreChanged = new UnityEvent<int>();
     [SerializeField] private TextMeshProUGUI scoreText;
     private int score = 0;
     void Awake()
     {
         Instance = this;
 
-        OnScoreChanged = new UnityEvent<int>();
+        if (OnScoreChanged == null){
+            OnScoreChanged = new UnityEvent<int>();
+        }
         OnScoreChanged.AddListener(UpdateScoreUI);
     }
 
@@ -32,4 +34,6 @@ public class ScoreManager : MonoBehaviour
     {
         scoreText.text = "Score: " + score.ToString();
     }
+    public int GetScore() => score;
+
 }

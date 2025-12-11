@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Re-find the EndGameUI in the newly loaded scene
-        endGameUI = FindObjectOfType<EndGameUI>();
+        endGameUI = FindFirstObjectByType<EndGameUI>();
 
         // Re-subscribe to events
         ScoreManager.Instance.OnScoreChanged.AddListener(CheckScore);
