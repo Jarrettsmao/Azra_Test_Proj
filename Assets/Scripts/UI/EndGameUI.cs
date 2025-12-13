@@ -51,9 +51,7 @@ public class EndGameUI : MonoBehaviour
 
     private void RestartGame()
     {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        panel.SetActive(false);
+        GameManager.Instance.RestartGame();
     }
 
     private void OnDifficultyChanged(int index)

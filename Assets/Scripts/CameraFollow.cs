@@ -4,7 +4,7 @@ public class CameraFollow : MonoBehaviour
 {
     public float interpVelocity;
     [SerializeField] private float speed;
-    [SerializeField] private GameObject target;
+    public GameObject target;
     [SerializeField] private Vector3 offset;
     private Vector3 targetPos;
     void Start()

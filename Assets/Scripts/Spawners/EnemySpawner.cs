@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : Spawner
 {
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject hunterPrefab;
@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
         }
         for (int i = 0; i < numHunters; i++)
         {
-            SpawnHunter();
+            SpawnObject(hunterPrefab);
             yield return new WaitForSeconds(spawnDelay);
         }
     }
@@ -43,10 +43,5 @@ public class EnemySpawner : MonoBehaviour
         Vector2 randomDir = Random.insideUnitCircle.normalized;
         float randomForce = Random.Range(launchForceMin, launchForceMax);
         rb.AddForce(randomDir * randomForce, ForceMode2D.Impulse);
-    }
-
-    public void SpawnHunter()
-    {
-        GameObject hunter = Instantiate(hunterPrefab, transform.position, Quaternion.identity);
     }
 }

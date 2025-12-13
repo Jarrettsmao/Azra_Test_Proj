@@ -18,9 +18,11 @@ public class PlayerInteractions : Bounceable
 
     void Start()
     {
+        isInvincible = false;
         PlayerHealthManager.Instance.OnHealthChanged.AddListener(OnPlayerHit);
         playerLayer = 6;
         enemyLayer = 10;
+        Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, false);
     }
 
     protected override IEnumerator OnBouncePadCollision(Collision2D collision)

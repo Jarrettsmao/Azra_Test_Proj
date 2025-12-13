@@ -16,7 +16,6 @@ public class DifficultyController : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public void SetDifficulty(DifficultyData newDifficulty)
